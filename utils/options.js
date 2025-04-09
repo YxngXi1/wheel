@@ -7,7 +7,7 @@ const options = [
     {
         id: 2,
         name: "Option 2",
-        rigged: false,
+        rigged: true,
     },
     {
         id: 3,
@@ -17,7 +17,7 @@ const options = [
     {
         id: 4,
         name: "Option 4",
-        rigged: false,
+        rigged: true,
     },
     {
         id: 5,
@@ -30,3 +30,5 @@ const options = [
         rigged: false,
     },
 ];
+
+export default options;
