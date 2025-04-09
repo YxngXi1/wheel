@@ -1,8 +1,11 @@
 'use client'
 
 import { useState } from "react";
-import { Wheel } from "react-custom-roulette";
+import dynamic from "next/dynamic";
 import options from "@/utils/options";
+
+// Dynamically import the Wheel component with SSR disabled
+const Wheel = dynamic(() => import("react-custom-roulette").then((mod) => mod.Wheel), { ssr: false });
 
 export default function Home() {
   const [mustSpin, setMustSpin] = useState(false);
@@ -14,24 +17,19 @@ export default function Home() {
     style: { backgroundColor: option.rigged ? "#FF5733" : "#33FF57" },
   }));
 
-    const handleSpinClick = () => {
-    // rigging mechanism investment phase
+  const handleSpinClick = () => {
     const riggedOptions = localOptions.filter((option) => option.rigged);
-  
-    // probably won't be used but just a back up
+
     if (riggedOptions.length === 0) {
       alert("All choices have been selected");
       return;
     }
-  
-    // js choose a rnadom rigged option like as long as its in the list of riggedoptions it picks one of them
+
     const randomIndex = Math.floor(Math.random() * riggedOptions.length);
-  
-    // this is the actual finding and making the rigged option the rigged option
     const riggedPrizeIndex = localOptions.findIndex(
       (option) => option.name === riggedOptions[randomIndex].name
     );
-  
+
     setPrizeNumber(riggedPrizeIndex);
     setMustSpin(true);
   };
@@ -39,7 +37,6 @@ export default function Home() {
   const handleStopSpinning = () => {
     setMustSpin(false);
 
-    // Remove the guessed option
     setLocalOptions((prevOptions) =>
       prevOptions.filter((_, index) => index !== prizeNumber)
     );
@@ -47,10 +44,8 @@ export default function Home() {
 
   return (
     <>
-      {/* POPUP STUFF */}
       <div></div>
 
-      {/* MAIN PART */}
       <main>
         <h2>Wheel of Fortune</h2>
         <Wheel
