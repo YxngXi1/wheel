@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npm install react-custom-wheel@1.2.3 --force"
+      "postinstall": "npm install react-custom-roulette@1.4.1 --legacy-peer-deps"
   },
   "dependencies": {
     "next": "15.2.5",
