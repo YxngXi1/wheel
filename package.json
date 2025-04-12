@@ -1,20 +1,18 @@
 {
-  "name": "wheel",
+  "name": "amislow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npm install react-custom-roulette@1.4.1 --legacy-peer-deps"
+    "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.2.5",
+    "next": "15.3.0",
     "react": "^19.0.0",
     "react-custom-roulette": "^1.4.1",
-    "react-dom": "^19.0.0",
-    "react-wheel-of-prizes": "^1.1.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -23,7 +21,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.5",
+    "eslint-config-next": "15.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
