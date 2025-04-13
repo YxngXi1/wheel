@@ -11,14 +11,6 @@ const Wheel = dynamic(
   { ssr: false }
 );
 
-// Define text size levels
-const textSizeLevels: Record<string, number> = {
-  small: 12,
-  medium: 16,
-  normal: 20,
-  large: 24,
-};
-
 export default function Home() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
