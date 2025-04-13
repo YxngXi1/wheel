@@ -4,3 +4,10 @@
   margin: 0;
   padding: 0;
 }
+
+.image-background-1 {
+  background-image: url('/ttispinnerbg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

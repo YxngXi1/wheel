@@ -1,33 +1,46 @@
 const options = [
     {
         id: 1,
-        name: "Option 1",
-        rigged: false,
+        name: "Choose A Decade",
+        order: 3,
     },
     {
         id: 2,
-        name: "Option 2",
-        rigged: true,
+        name: "Y2K Cybercore",
     },
     {
         id: 3,
-        name: "Option 3",
-        rigged: false,
+        name: "Avant Apocalypse",
     },
     {
         id: 4,
-        name: "Option 4",
-        rigged: true,
+        name: "Shoujo Style",
+        order: 1,
     },
     {
         id: 5,
-        name: "Option 5",
-        rigged: false,
+        name: "Winter Wonderland",
     },
     {
         id: 6,
-        name: "Option 6",
-        rigged: false,
+        name: "Retro Glamour",
+    },
+    {
+        id: 7,
+        name: "Grunge",
+        order: 2,
+    },
+    {
+        id: 8,
+        name: "Steampunk",
+    },
+    {
+        id: 9,
+        name: "Minecraft",
+    },
+    {
+        id: 10,
+        name: "Gothic",
     },
 ];
 
