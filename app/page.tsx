@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 import options from "@/utils/options";
 import dynamic from "next/dynamic";
 
@@ -24,6 +25,16 @@ export default function Home() {
   const [localOptions, setLocalOptions] = useState(options); // Local copy of options
   const [selectedOption, setSelectedOption] = useState<string | null>(null); // State for the selected option
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  useEffect(() => {
+    if (showPopup) {
+      // Trigger confetti explosion
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    }
+  }, [showPopup]);
 
   const data = localOptions.map((option, index) => ({
     option: option.name,
