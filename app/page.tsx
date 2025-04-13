@@ -17,6 +17,7 @@ export default function Home() {
   const [localOptions, setLocalOptions] = useState(options); // Local copy of options
   const [selectedOption, setSelectedOption] = useState<string | null>(null); // State for the selected option
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  
   useEffect(() => {
     if (showPopup) {
       // Trigger confetti explosion
@@ -24,6 +25,7 @@ export default function Home() {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
+        zIndex: 1100, // Ensure confetti appears above the popup background
       });
     }
   }, [showPopup]);
