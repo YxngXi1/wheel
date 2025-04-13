@@ -5,7 +5,6 @@ import confetti from "canvas-confetti";
 import options from "@/utils/options";
 import dynamic from "next/dynamic";
 
-// Dynamically load Wheel only on the client
 const Wheel = dynamic(
   () => import("react-custom-roulette").then((mod) => mod.Wheel),
   { ssr: false }
@@ -14,18 +13,18 @@ const Wheel = dynamic(
 export default function Home() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
-  const [localOptions, setLocalOptions] = useState(options); // Local copy of options
-  const [selectedOption, setSelectedOption] = useState<string | null>(null); // State for the selected option
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
-  
+  const [localOptions, setLocalOptions] = useState(options); 
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState(false); 
+
   useEffect(() => {
     if (showPopup) {
-      // Trigger confetti explosion
+      // confetti animation
       confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        zIndex: 1100, // Ensure confetti appears above the popup background
+        zIndex: 1100, 
       });
     }
   }, [showPopup]);
@@ -42,17 +41,17 @@ export default function Home() {
           ? "#ffdbdb"
           : index % 5 === 3
           ? "#b9b7be"
-          : "#ff95cb", // Alternate in groups of five
+          : "#ff95cb", 
     },
     textStyle: {
       fontSize: `18`,
       color: "#FFFFFF",
-      textAlign: "center", // Ensure proper alignment
+      textAlign: "center", 
     },
   }));
 
   const handleSpinClick = () => {
-    // Find the option with the lowest "order" property
+    // go from 1,2,3
     const orderedOptions = localOptions.filter((option) => option.order !== undefined);
     if (orderedOptions.length === 0) {
       alert("All choices have been selected");
@@ -72,18 +71,16 @@ export default function Home() {
   const handleStopSpinning = () => {
     setMustSpin(false);
 
-    // Set the selected option to display in the popup
     setSelectedOption(localOptions[prizeNumber]?.name || null);
-    setShowPopup(true); // Show the popup
+    setShowPopup(true); 
 
-    // Remove the guessed option
     setLocalOptions((prevOptions) =>
       prevOptions.filter((_, index) => index !== prizeNumber)
     );
   };
 
   const closePopup = () => {
-    setShowPopup(false); // Close the popup
+    setShowPopup(false); 
   };
 
   return (
@@ -140,7 +137,7 @@ export default function Home() {
             className="text-5xl font-bold text-white border bg-[#ffdbdb] rounded-full"
             style={{
               padding: "10px 20px",
-              textShadow: "2px 2px 0 #ff19b1, -2px 2px 0 #ff19b1, 2px -2px 0 #ff19b1, -2px -2px 0 #ff19b1", // Black outline
+              textShadow: "2px 2px 0 #ff19b1, -2px 2px 0 #ff19b1, 2px -2px 0 #ff19b1, -2px -2px 0 #ff19b1", 
             }}
           >
             <p>{selectedOption || "SELECTING PROMPT.."}</p>
@@ -152,8 +149,8 @@ export default function Home() {
             className="mb-20"
             style={{
               cursor: mustSpin ? "default" : "pointer",
-              transform: "scale(1.25) translateY(-50px)", // Scale the wheel and move it up by 50px
-              transition: "transform 0.3s ease", // Smooth scaling and translation transition
+              transform: "scale(1.25) translateY(-50px)", 
+              transition: "transform 0.3s ease",
             }}
           >
             <Wheel
