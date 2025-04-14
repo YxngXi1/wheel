@@ -104,28 +104,31 @@ export default function Home() {
           >
             <div
               style={{
-                backgroundColor: "#fff",
-                padding: "20px",
+                backgroundColor: "#dd9494",
+                border: "10px solid #c7f874",
+                padding: "100px",
                 borderRadius: "8px",
                 textAlign: "center",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
-              <h2>Selected Option</h2>
-              <p>{selectedOption}</p>
+              <div className="mb-20">
+                <h2 className="heading-font text-6xl text-white">Selected Option</h2>
+                <p className="text-8xl font-semibold text-white">[{selectedOption}]</p>
+              </div>
               <button
                 onClick={closePopup}
+                
                 style={{
-                  marginTop: "10px",
+                  marginTop: "50px",
                   padding: "10px 20px",
-                  backgroundColor: "#007BFF",
-                  color: "#fff",
+                  backgroundColor: "#afd46e",
                   border: "none",
-                  borderRadius: "4px",
+                  borderRadius: "999px",
                   cursor: "pointer",
                 }}
               >
-                Close
+                <p className="text-black text-2xl">ok purr</p>
               </button>
             </div>
           </div>
