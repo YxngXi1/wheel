@@ -152,7 +152,6 @@ export default function Home() {
             className="mb-20"
             style={{
               cursor: mustSpin ? "default" : "pointer",
-              transform: "scale(1.25) translateY(-50px)", 
               transition: "transform 0.3s ease",
             }}
           >
