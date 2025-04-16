@@ -118,7 +118,6 @@ export default function Home() {
               </div>
               <button
                 onClick={closePopup}
-                
                 style={{
                   marginTop: "50px",
                   padding: "10px 20px",
@@ -133,41 +132,41 @@ export default function Home() {
             </div>
           </div>
         )}
-  
+      
         {/* MAIN PART */}
-        <div className="h-[50vh] mx-auto w-full text-center flex justify-center items-center z-10 fixed">
+        <div className="w-full text-center flex items-justify items-center flex-col mt-20">
           <div
-            className="text-5xl font-bold text-white border bg-[#ffdbdb] rounded-full"
+            className="w-1/2 text-5xl font-bold text-white border bg-[#ffdbdb] rounded-full "
             style={{
               padding: "10px 20px",
-              textShadow: "2px 2px 0 #ff19b1, -2px 2px 0 #ff19b1, 2px -2px 0 #ff19b1, -2px -2px 0 #ff19b1", 
+              textShadow: "2px 2px 0 #ff19b1, -2px 2px 0 #ff19b1, 2px -2px 0 #ff19b1, -2px -2px 0 #ff19b1",
             }}
           >
             <p>{selectedOption || "SELECTING PROMPT.."}</p>
           </div>
+          <main className="w-full flex justify-center items-start mt-10">
+            <div
+              onClick={handleSpinClick}
+              className="mb-20"
+              style={{
+                cursor: mustSpin ? "default" : "pointer",
+                transition: "transform 0.3s ease",
+              }}
+            >
+              <Wheel
+                mustStartSpinning={mustSpin}
+                prizeNumber={prizeNumber}
+                data={data}
+                onStopSpinning={handleStopSpinning}
+                fontSize={17.5}
+                innerBorderWidth={0}
+                radiusLineWidth={0}
+                outerBorderWidth={1}
+              />
+            </div>
+            {localOptions.length === 0 && <p>All options have been guessed!</p>}
+          </main>
         </div>
-        <main className="min-h-screen flex justify-center items-end">
-          <div
-            onClick={handleSpinClick}
-            className="mb-20"
-            style={{
-              cursor: mustSpin ? "default" : "pointer",
-              transition: "transform 0.3s ease",
-            }}
-          >
-            <Wheel
-              mustStartSpinning={mustSpin}
-              prizeNumber={prizeNumber}
-              data={data}
-              onStopSpinning={handleStopSpinning}
-              fontSize={17.5}
-              innerBorderWidth={0}
-              radiusLineWidth={0}
-              outerBorderWidth={1}
-            />
-          </div>
-          {localOptions.length === 0 && <p>All options have been guessed!</p>}
-        </main>
       </div>
     </>
   );
