@@ -134,9 +134,10 @@ export default function Home() {
         )}
       
         {/* MAIN PART */}
+        <div className="p-20">‎ </div>
         <div className="w-full text-center flex items-justify items-center flex-col mt-20">
           <div
-            className="w-1/2 text-5xl font-bold text-white border bg-[#ffdbdb] rounded-full "
+            className="w-1/2 text-5xl font-bold text-white border bg-[#ffdbdb] rounded-full mt-10"
             style={{
               padding: "10px 20px",
               textShadow: "2px 2px 0 #ff19b1, -2px 2px 0 #ff19b1, 2px -2px 0 #ff19b1, -2px -2px 0 #ff19b1",
